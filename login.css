@@ -7,19 +7,19 @@ body{
     background-color: #f8f8f8;
 }
 .navbar {
-  background-color: #b0dbb2;
+  background-image: linear-gradient(90deg, #a0d88c 0%, #5fb04b 100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
-  flex-wrap: wrap;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-    background-color: #b0dbb2;
-  width: 100px;
-  height: 100px;
-  background-image: url(img/logo.png);
+    background-color: #a0d88c 0%;
+  width: 60px;
+  height: 60px;
+  background-image: url(logo.png);
   background-size: cover;
 
 }

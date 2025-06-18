@@ -16,7 +16,7 @@
         <br><br>
 
         <div class="form">
-        <h3 align="center"> Create New ACC</h3>
+        <h3 align="center"> Create New Account</h3>
         <h1></h1>
         
         <form action="action.php"  method="POST" name="form_input">

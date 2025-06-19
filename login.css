@@ -1,74 +1,203 @@
-*{
- padding: 0;
- margin: 0;
+/* Umum */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
-    background-color: #f8f8f8;
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: #fdf6ec;
+  color: #3e2f23;
+  overflow-x: hidden;
 }
+
+/* Background gambar blur di seluruh halaman */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('latarfooter.jpg'); /* pastikan file ini ada */
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.5);
+  z-index: -1;
+}
+
+
+/* Navbar */
 .navbar {
-  background-image: linear-gradient(90deg, #a0d88c 0%, #5fb04b 100%);
+  background: rgba(41, 12, 12, 0.6); /* semi transparan putih */
+  backdrop-filter: blur(10px); /* efek kaca */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  animation: fadeSlideDown 1.5s ease-out;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+  
+
+/* Logo */
 .logo {
-    background-color: #a0d88c 0%;
-  width: 60px;
-  height: 60px;
-  background-image: url(logo.png);
-  background-size: cover;
-
+  background-image: url('logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 80px;
+  width: 220px;
+  margin-left: 50px;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 0 4px #00000088); /* bayangan agar kontras */
 }
 
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Animasi navbar */
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form */
 .form {
-    max-width: 600px;
-    margin: auto;
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px #b0dbb2;
-  }
+  background-color: #fffaf3; /* krem rempah */
+  width: 90%;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(120, 78, 42, 0.1);
+  border: 2px solid #f4c95d; /* warna kunyit terang */
+}
 
- input[type="email"], [type="text"], [type="password"], [type="date"]
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  input[type="submit"] {
-    background-color: #b0dbb2;
-    color: rgb(105, 57, 33);
-    padding: 10px 20px;
-    border: none;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    align-items: center;
-  }
-  
-  input[type="submit"]:hover {
-    color: white;
-  }
+.form h3 {
+  margin-bottom: 1.5rem;
+  color: #7b3e19; /* warna kayu manis pekat */
+}
 
-  footer {
-    margin-top: 40px;
-    padding: 15px;
-    background-color: #558d57;
-    color: rgb(105, 57, 33);
-    font-size: 14px;
-    border-radius: 8px;
-    text-align: center;
+.form label {
+  font-weight: bold;
+  margin-top: 1rem;
+  display: inline-block;
+  color: #864c1c;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #d5ae80;
+  border-radius: 6px;
+  background-color: #fffdf7;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus {
+  border-color: #e38d20; /* warna kunyit pekat */
+  outline: none;
+}
+
+/* Tombol submit */
+input[type="submit"] {
+  background-color: #b5482d; /* merah cabe */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #8a321f;
+  transform: scale(1.05);
+}
+
+/* Animasi klik tombol */
+@keyframes buttonPulse {
+  0% {
+    transform: scale(1);
+    background-color: #b5482d;
   }
-  
-  .map{
-    min-height: 200px;
+  50% {
+    transform: scale(1.1);
+    background-color: #f4a259;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #b5482d;
+  }
+}
+
+.btn-clicked {
+  animation: buttonPulse 0.4s ease;
+}
+
+/* Footer */
+footer *{
+  position: relative;
+  z-index: 2;
+}
+
+footer {
+  background-color: #f6ede1;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #5b3c2a;
+}
+
+.socials a {
+  margin: 0 10px;
+  color: #7a4b28;
+  font-size: 20px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.socials a:hover {
+  color: #e38d20;
+}
+
+.socials i {
+  font-size: 24px;
+  margin: 0 10px;
+  color: #7a4b28;
+  transition: 0.3s ease;
+}
+
+.socials i:hover {
+  color: #e38d20;
+}
+
+
+.map {
+  width: 90%;
+  height: 300px;
+  margin: 20px auto;
+  border: 2px solid #e38d20;
+  border-radius: 10px;
+  display: block;
 }

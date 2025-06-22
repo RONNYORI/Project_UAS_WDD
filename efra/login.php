@@ -10,8 +10,7 @@
     <nav class="navbar">
         <div class="logo">
         </div>
-
-	</nav>	
+    </nav>	 
 
         <br><br>
 
